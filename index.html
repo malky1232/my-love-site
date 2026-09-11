@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#120611">
+<title>إلى حبيبتي ❤️</title>
+<style>
+:root{
+  --bg:#09040b; --card:rgba(255,255,255,.075); --line:rgba(255,255,255,.13);
+  --pink:#ff5f9e; --rose:#ff86b7; --text:#fff8fc; --muted:#d9c6d0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh; overflow-x:hidden; color:var(--text);
+  font-family:Tahoma,"Segoe UI",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 50% 10%,rgba(255,73,142,.18),transparent 30%),
+    radial-gradient(circle at 15% 80%,rgba(143,40,255,.12),transparent 25%),var(--bg);
+}
+button{font:inherit}
+#particles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.particle{position:absolute;bottom:-30px;opacity:0;animation:floatUp linear forwards}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0) scale(.7);opacity:0}12%{opacity:.7}100%{transform:translateY(-115vh) rotate(35deg) scale(1.15);opacity:0}}
+.screen{
+  position:relative;z-index:2;min-height:100vh;padding:28px 18px 80px;
+  display:none;align-items:center;justify-content:center;
+}
+.screen.active{display:flex;animation:enter .65s ease both}
+@keyframes enter{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.wrap{width:min(920px,100%);text-align:center}
+.eyebrow{font-size:.78rem;letter-spacing:3px;color:#ffafd0;margin-bottom:18px}
+h1{font-size:clamp(2.3rem,9vw,5.5rem);line-height:1.05;margin-bottom:18px;text-shadow:0 0 35px rgba(255,95,158,.35)}
+h2{font-size:clamp(1.7rem,6vw,3rem);margin-bottom:15px}
+p{line-height:1.95;color:var(--muted)}
+.big-heart{
+  width:100px;height:100px;margin:0 auto 25px;position:relative;
+  transform:rotate(-45deg);background:linear-gradient(135deg,#ff9ac2,#ff2f82);
+  border-radius:18px 0 18px 0;box-shadow:0 0 55px rgba(255,55,130,.45);
+  animation:pulse 1.6s ease-in-out infinite;
+}
+.big-heart:before,.big-heart:after{content:"";position:absolute;width:100px;height:100px;border-radius:50%;background:inherit}
+.big-heart:before{top:-50px;left:0}.big-heart:after{left:50px;top:0}
+@keyframes pulse{50%{transform:rotate(-45deg) scale(1.08)}}
+.cta{
+  margin-top:28px;border:1px solid rgba(255,255,255,.18);color:#fff;
+  background:linear-gradient(135deg,#ff4d94,#c92d70);padding:14px 25px;border-radius:999px;
+  cursor:pointer;box-shadow:0 12px 35px rgba(255,45,120,.22);transition:.25s;
+}
+.cta:hover{transform:translateY(-3px);filter:brightness(1.08)}
+.ghost{background:rgba(255,255,255,.07);margin-inline-start:8px}
+.card{
+  background:var(--card);border:1px solid var(--line);backdrop-filter:blur(16px);
+  border-radius:28px;padding:28px;box-shadow:0 20px 70px rgba(0,0,0,.25);
+}
+.message{font-size:clamp(1.05rem,3vw,1.3rem);max-width:760px;margin:auto}
+.highlight{color:#ff8fbc;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:25px}
+.reason{
+  min-height:145px;display:flex;align-items:center;justify-content:center;flex-direction:column;
+  gap:10px;padding:18px;border-radius:20px;background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.09);opacity:0;transform:translateY(15px);
+}
+.reason.show{animation:pop .5s ease forwards}
+.reason b{font-size:1.5rem}.reason span{color:var(--muted);line-height:1.7}
+@keyframes pop{to{opacity:1;transform:none}}
+.timeline{position:relative;max-width:720px;margin:28px auto;text-align:right}
+.timeline:before{content:"";position:absolute;right:13px;top:5px;bottom:5px;width:2px;background:linear-gradient(#ff5f9e,transparent)}
+.event{position:relative;padding:0 48px 28px 0}.dot{position:absolute;right:6px;top:5px;width:16px;height:16px;border-radius:50%;background:#ff6da6;box-shadow:0 0 18px #ff4f95}
+.event h3{margin-bottom:5px}.event p{font-size:.95rem}
+.counter{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:25px 0}
+.unit{min-width:82px;padding:15px 10px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.unit strong{display:block;font-size:1.6rem}.unit small{color:#cdb8c4}
+.final{font-size:clamp(1.15rem,3.5vw,1.5rem);font-weight:500}
+.signature{margin-top:25px;color:#ff9bc3;font-weight:700}
+.nav{position:fixed;z-index:20;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.nav button{border:1px solid var(--line);background:rgba(20,8,18,.72);color:#fff;border-radius:999px;padding:9px 15px;cursor:pointer;backdrop-filter:blur(10px)}
+.nav button:disabled{opacity:.35;cursor:not-allowed}
+.music{
+  position:fixed;z-index:21;top:15px;left:15px;border:1px solid var(--line);
+  width:44px;height:44px;border-radius:50%;background:rgba(20,8,18,.72);color:#fff;cursor:pointer;
+}
+.note{font-size:.78rem;color:#a995a1;margin-top:12px}
+@media(max-width:650px){
+  .grid{grid-template-columns:1fr}.card{padding:22px 17px}.nav{width:calc(100% - 24px);justify-content:center}
+  .nav button{flex:1}.ghost{margin-inline-start:0;margin-top:8px}
+}
+</style>
+</head>
+<body>
+<div id="particles"></div>
+
+<section class="screen active" data-screen="0">
+  <div class="wrap">
+    <div class="big-heart" aria-hidden="true"></div>
+    <div class="eyebrow">A LITTLE SURPRISE FOR YOU</div>
+    <h1>إلى حبيبتي ❤️</h1>
+    <p class="message">في حاجات كتير ممكن تتقال… بس أنا عملتلك حاجة صغيرة عشان أقولك إن وجودك في حياتي مش حاجة عادية.</p>
+    <button class="cta" id="startBtn">افتحي المفاجأة ❤️</button>
+    <div class="note">يفضل فتح الصفحة بصوت الهاتف مفتوح 🔊</div>
+  </div>
+</section>
+
+<section class="screen" data-screen="1">
+  <div class="wrap">
+    <div class="card">
+      <div class="eyebrow">JUST FOR YOU</div>
+      <h2>عارفة إنتِ بالنسبة لي إيه؟</h2>
+      <p class="message">
+        إنتِ مش مجرد شخص بحبه… إنتِ الشخص اللي وجوده بيخلّي اليوم العادي يبقى له معنى.
+        في وسط كل الزحمة، مجرد كلامك قادر يغيّر مود يوم كامل.
+        <br><br>
+        ويمكن مش بعرف أقول ده كل مرة، لكن الحقيقة البسيطة هي:
+        <span class="highlight">أنا مبسوط إنك في حياتي.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="screen" data-screen="2">
+  <div class="wrap">
+    <div class="eyebrow">WHY YOU?</div>
+    <h2>ليه بحبك؟</h2>
+    <p>خليني أقولك شوية من الأسباب… والباقي لسه طويل ❤️</p>
+    <div class="grid">
+      <div class="reason"><b>01</b><span>عشان ضحكتك ليها تأثير غريب على قلبي.</span></div>
+      <div class="reason"><b>02</b><span>عشان وجودك بيخليني أحس إن الدنيا أهدى.</span></div>
+      <div class="reason"><b>03</b><span>عشان فيكي تفاصيل صغيرة محدش بياخد باله منها غيري.</span></div>
+      <div class="reason"><b>04</b><span>عشان كلامك، حتى لو بسيط، بيفضل في بالي.</span></div>
+      <div class="reason"><b>05</b><span>عشان معاكي بقدر أكون على طبيعتي.</span></div>
+      <div class="reason"><b>06</b><span>وعشان ببساطة… إنتِ إنتِ، وده لوحده سبب كفاية.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="screen" data-screen="3">
+  <div class="wrap">
+    <div class="card">
+      <div class="eyebrow">OUR LITTLE STORY</div>
+      <h2>أجمل حاجة في الحكاية</h2>
+      <div class="timeline">
+        <div class="event"><i class="dot"></i><h3>أول مرة لفتِ نظري</h3><p>يمكن وقتها مكنتش أعرف إن اللحظة دي هتفضل بداية لحاجة مهمة عندي.</p></div>
+        <div class="event"><i class="dot"></i><h3>أول مرة حسيت إنك مختلفة</h3><p>بدأت أكتشف إن الموضوع مش مجرد إعجاب… كان فيه راحة وحب بيتكوّنوا واحدة واحدة.</p></div>
+        <div class="event"><i class="dot"></i><h3>دلوقتي</h3><p>بقيتي واحدة من أجمل التفاصيل اللي مش عايز أخسرها من حياتي.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screen" data-screen="4">
+  <div class="wrap">
+    <div class="card">
+      <div class="eyebrow">EVERY SECOND COUNTS</div>
+      <h2>كل لحظة معاكي بتفرق ❤️</h2>
+      <p>وده مجرد عداد تجريبي. لما نعمل النسخة النهائية نحط تاريخ مهم ليكم.</p>
+      <div class="counter">
+        <div class="unit"><strong id="days">0</strong><small>يوم</small></div>
+        <div class="unit"><strong id="hours">0</strong><small>ساعة</small></div>
+        <div class="unit"><strong id="mins">0</strong><small>دقيقة</small></div>
+        <div class="unit"><strong id="secs">0</strong><small>ثانية</small></div>
+      </div>
+      <p class="note">التاريخ التجريبي: 1 يناير 2025 — هنغيره بعد كده.</p>
+    </div>
+  </div>
+</section>
+
+<section class="screen" data-screen="5">
+  <div class="wrap">
+    <div class="card">
+      <div class="eyebrow">ONE LAST THING</div>
+      <h2>قبل ما تقفلي الصفحة…</h2>
+      <p class="message final">
+        لو في يوم شكّيتي قد إيه إنتِ مهمة عندي، افتكري إن في شخص قرر يعمل صفحة كاملة مخصوص عشان يفرّحك.
+        <br><br>
+        أنا مش عايز منك حاجة كبيرة… عايز أشوفك مبسوطة، مطمنة، وعارفة إن في حد شايفك جميلة بكل تفاصيلك.
+        <br><br>
+        <span class="highlight">بحبك… أكتر مما الكلام يقدر يشرحه. ❤️</span>
+      </p>
+      <div class="signature">— من الشخص اللي اختارك من قلبه ❤️</div>
+    </div>
+  </div>
+</section>
+
+<div class="nav">
+  <button id="prev" type="button">السابق</button>
+  <button id="next" type="button">التالي ❤️</button>
+</div>
+
+<button class="music" id="musicBtn" type="button" title="تشغيل/إيقاف الموسيقى">♫</button>
+<audio id="music" loop preload="none">
+  <!-- ضع اسم ملف الأغنية هنا لاحقًا، مثل: music.mp3 -->
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+"use strict";
+
+const screens = Array.from(document.querySelectorAll(".screen"));
+const nextBtn = document.getElementById("next");
+const prevBtn = document.getElementById("prev");
+const startBtn = document.getElementById("startBtn");
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
+const particles = document.getElementById("particles");
+
+let current = 0;
+let musicPlaying = false;
+let countdownTimer = null;
+
+// تاريخ تجريبي: 1 يناير 2025.
+const startDate = new Date(2025, 0, 1, 0, 0, 0);
+
+function showScreen(index) {
+  current = Math.max(0, Math.min(index, screens.length - 1));
+  screens.forEach((screen, i) => screen.classList.toggle("active", i === current));
+
+  prevBtn.disabled = current === 0;
+  nextBtn.disabled = current === screens.length - 1;
+  nextBtn.textContent = current === screens.length - 1 ? "❤️" : "التالي ❤️";
+
+  if (current === 2) revealReasons();
+  if (current === 4) startCounter();
+  else stopCounter();
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function next() {
+  if (current < screens.length - 1) showScreen(current + 1);
+}
+function previous() {
+  if (current > 0) showScreen(current - 1);
+}
+
+function tryMusic() {
+  music.play().then(() => {
+    musicPlaying = true;
+    musicBtn.textContent = "❚❚";
+  }).catch(() => {
+    // المتصفح قد يمنع التشغيل التلقائي؛ سيعمل بعد الضغط مرة أخرى.
+    musicPlaying = false;
+    musicBtn.textContent = "♫";
+  });
+}
+
+startBtn.addEventListener("click", () => {
+  tryMusic();
+  showScreen(1);
+});
+
+nextBtn.addEventListener("click", next);
+prevBtn.addEventListener("click", previous);
+
+musicBtn.addEventListener("click", () => {
+  if (musicPlaying) {
+    music.pause();
+    musicPlaying = false;
+    musicBtn.textContent = "♫";
+  } else {
+    tryMusic();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") next();
+  if (event.key === "ArrowLeft") previous();
+});
+
+function revealReasons() {
+  document.querySelectorAll(".reason").forEach((el, i) => {
+    el.classList.remove("show");
+    window.setTimeout(() => el.classList.add("show"), i * 110);
+  });
+}
+
+function updateCounter() {
+  const now = new Date();
+  let diff = now - startDate;
+  if (diff < 0) diff = 0;
+
+  const totalSeconds = Math.floor(diff / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const mins = Math.floor((totalSeconds % 3600) / 60);
+  const secs = totalSeconds % 60;
+
+  document.getElementById("days").textContent = days.toLocaleString("ar-EG");
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("mins").textContent = String(mins).padStart(2, "0");
+  document.getElementById("secs").textContent = String(secs).padStart(2, "0");
+}
+
+function startCounter() {
+  stopCounter();
+  updateCounter();
+  countdownTimer = window.setInterval(updateCounter, 1000);
+}
+function stopCounter() {
+  if (countdownTimer !== null) {
+    window.clearInterval(countdownTimer);
+    countdownTimer = null;
+  }
+}
+
+function makeParticle() {
+  const el = document.createElement("span");
+  el.className = "particle";
+  el.textContent = Math.random() > 0.35 ? "♥" : "✦";
+  el.style.left = `${Math.random() * 100}%`;
+  el.style.fontSize = `${10 + Math.random() * 18}px`;
+  el.style.animationDuration = `${7 + Math.random() * 8}s`;
+  el.style.animationDelay = `${Math.random() * 1.5}s`;
+  el.style.color = Math.random() > 0.5 ? "#ff79ad" : "#f4d5e4";
+  particles.appendChild(el);
+  window.setTimeout(() => el.remove(), 17000);
+}
+
+for (let i = 0; i < 20; i++) {
+  window.setTimeout(makeParticle, i * 250);
+}
+window.setInterval(makeParticle, 650);
+
+showScreen(0);
+</script>
+</body>
+</html>
